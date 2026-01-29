@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#004F5D">
+    <title>Brain Dump</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation Tabs -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="dump">
+                <span class="tab-icon">⚡</span>
+                <span class="tab-text">Dump</span>
+            </button>
+            <button class="tab-btn" data-tab="notes">
+                <span class="tab-icon">📋</span>
+                <span class="tab-text">Notatki</span>
+            </button>
+        </nav>
+
+        <!-- Brain Dump View -->
+        <main class="view active" id="dump-view">
+            <div class="dump-container">
+                <textarea
+                    id="thought-input"
+                    class="thought-input"
+                    placeholder="Co masz na myśli?&#10;&#10;Ctrl+Enter = zapisz | Escape = wyczyść"
+                    autofocus
+                ></textarea>
+                <button id="save-btn" class="save-btn">
+                    <span class="save-icon">💾</span>
+                    <span class="save-text">Zapisz myśl</span>
+                </button>
+            </div>
+            <div id="save-feedback" class="save-feedback"></div>
+        </main>
+
+        <!-- Notes List View -->
+        <section class="view" id="notes-view">
+            <div class="notes-header">
+                <h2 class="notes-title">Twoje myśli</h2>
+                <div class="filter-container">
+                    <select id="category-filter" class="category-filter">
+                        <option value="all">Wszystkie kategorie</option>
+                    </select>
+                </div>
+            </div>
+            <div id="notes-list" class="notes-list">
+                <!-- Notes will be rendered here -->
+            </div>
+            <div id="empty-state" class="empty-state">
+                <span class="empty-icon">🧠</span>
+                <p>Brak notatek. Przejdź do Dump i zapisz pierwszą myśl!</p>
+            </div>
+        </section>
+
+        <!-- Edit Modal -->
+        <div id="edit-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Edytuj notatkę</h3>
+                    <button class="modal-close" id="modal-close">&times;</button>
+                </div>
+                <textarea id="edit-textarea" class="edit-textarea"></textarea>
+                <div class="modal-actions">
+                    <button id="delete-btn" class="btn btn-danger">🗑️ Usuń</button>
+                    <button id="save-edit-btn" class="btn btn-primary">💾 Zapisz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/categorizer.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
