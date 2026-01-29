@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#004F5D">
+    <meta name="theme-color" content="#000000">
     <title>Brain Dump</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23111' width='100' height='100' rx='20'/><text x='50' y='60' text-anchor='middle' fill='%2300FFF7' font-size='50' font-family='system-ui'>BD</text></svg>">
 </head>
 <body>
     <div class="app-container">
         <!-- Navigation Tabs -->
         <nav class="tab-nav">
             <button class="tab-btn active" data-tab="dump">
-                <span class="tab-icon">⚡</span>
+                <span class="tab-icon">/</span>
                 <span class="tab-text">Dump</span>
             </button>
             <button class="tab-btn" data-tab="notes">
-                <span class="tab-icon">📋</span>
+                <span class="tab-icon">#</span>
                 <span class="tab-text">Notatki</span>
             </button>
         </nav>
@@ -34,8 +34,7 @@
                     autofocus
                 ></textarea>
                 <button id="save-btn" class="save-btn">
-                    <span class="save-icon">💾</span>
-                    <span class="save-text">Zapisz myśl</span>
+                    <span class="save-text">ZAPISZ</span>
                 </button>
             </div>
             <div id="save-feedback" class="save-feedback"></div>
@@ -55,7 +54,7 @@
                 <!-- Notes will be rendered here -->
             </div>
             <div id="empty-state" class="empty-state">
-                <span class="empty-icon">🧠</span>
+                <span class="empty-icon">[  ]</span>
                 <p>Brak notatek. Przejdź do Dump i zapisz pierwszą myśl!</p>
             </div>
         </section>
@@ -69,8 +68,8 @@
                 </div>
                 <textarea id="edit-textarea" class="edit-textarea"></textarea>
                 <div class="modal-actions">
-                    <button id="delete-btn" class="btn btn-danger">🗑️ Usuń</button>
-                    <button id="save-edit-btn" class="btn btn-primary">💾 Zapisz</button>
+                    <button id="delete-btn" class="btn btn-danger">Usuń</button>
+                    <button id="save-edit-btn" class="btn btn-primary">Zapisz</button>
                 </div>
             </div>
         </div>
