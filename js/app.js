@@ -315,7 +315,7 @@
             const content = UI.elements.thoughtInput.value.trim();
 
             if (!content) {
-                UI.showFeedback('⚠️ Wpisz coś najpierw!');
+                UI.showFeedback('Wpisz coś najpierw');
                 return;
             }
 
@@ -336,10 +336,10 @@
 
             // Zapisz
             if (Storage.add(note)) {
-                UI.showFeedback(`✅ Zapisano jako: ${categorization.icon} ${categorization.category}`);
+                UI.showFeedback(`Zapisano: ${categorization.category}`);
                 UI.clearInput();
             } else {
-                UI.showFeedback('❌ Błąd zapisu! Spróbuj ponownie.');
+                UI.showFeedback('Błąd zapisu');
             }
         },
 
@@ -356,7 +356,7 @@
             if (Storage.update(UI.currentEditId, newContent)) {
                 UI.closeEditModal();
                 UI.renderNotes(UI.elements.categoryFilter.value);
-                UI.showFeedback('✅ Zapisano zmiany');
+                UI.showFeedback('Zapisano');
             }
         },
 
@@ -367,7 +367,7 @@
                 if (Storage.delete(UI.currentEditId)) {
                     UI.closeEditModal();
                     UI.renderNotes(UI.elements.categoryFilter.value);
-                    UI.showFeedback('🗑️ Notatka usunięta');
+                    UI.showFeedback('Usunięto');
                 }
             }
         },

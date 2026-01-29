@@ -8,39 +8,39 @@ const Categorizer = {
     // Predefiniowane kategorie z ich wzorcami
     categories: {
         'zadanie': {
-            icon: '✅',
+            icon: '[x]',
             keywords: ['zrobić', 'kupić', 'zadzwonić', 'wysłać', 'sprawdzić', 'naprawić',
                       'umówić', 'zapłacić', 'oddać', 'odebrać', 'przygotować', 'dokończyć',
                       'todo', 'task', 'must', 'trzeba', 'muszę', 'należy', 'pamiętaj'],
             patterns: [/^[-•\*]\s/m, /^\d+[\.\)]\s/m, /do zrobienia/i, /lista/i]
         },
         'pomysł': {
-            icon: '💡',
+            icon: '*',
             keywords: ['pomysł', 'idea', 'może', 'można by', 'co jeśli', 'a gdyby',
                       'warto by', 'fajnie by było', 'koncept', 'innowacja', 'projekt'],
             patterns: [/^co (jeśli|gdyby)/i, /^a (może|gdyby)/i, /!/]
         },
         'pytanie': {
-            icon: '❓',
+            icon: '?',
             keywords: ['dlaczego', 'jak', 'kiedy', 'gdzie', 'kto', 'co', 'czy',
                       'który', 'ile', 'czemu', 'po co', 'skąd'],
             patterns: [/\?$/, /\?[\.!\s]*$/, /^(jak|dlaczego|kiedy|gdzie|kto|co|czy)/i]
         },
         'praca': {
-            icon: '💼',
+            icon: '@',
             keywords: ['spotkanie', 'meeting', 'deadline', 'projekt', 'klient', 'szef',
                       'zespół', 'prezentacja', 'raport', 'email', 'mail', 'firma',
                       'biuro', 'praca', 'zlecenie', 'kontrakt', 'umowa', 'faktura'],
             patterns: [/@\w+/, /deadline/i, /ASAP/i]
         },
         'zakupy': {
-            icon: '🛒',
+            icon: '$',
             keywords: ['kupić', 'sklep', 'zakupy', 'lista zakupów', 'zamówić',
                       'cena', 'promocja', 'rabat', 'allegro', 'amazon', 'olx'],
             patterns: [/\d+\s*(zł|pln|€|\$)/i, /kupić/i]
         },
         'wydarzenie': {
-            icon: '📅',
+            icon: '>>',
             keywords: ['spotkanie', 'wizyta', 'urodziny', 'rocznica', 'impreza',
                       'koncert', 'wyjazd', 'lot', 'rezerwacja', 'termin', 'data'],
             patterns: [/\d{1,2}[\.\/\-]\d{1,2}/, /o\s+\d{1,2}:\d{2}/,
@@ -48,29 +48,29 @@ const Categorizer = {
                       /(styczeń|luty|marzec|kwiecień|maj|czerwiec|lipiec|sierpień|wrzesień|październik|listopad|grudzień)/i]
         },
         'notatka': {
-            icon: '📝',
+            icon: '#',
             keywords: ['notatka', 'zapamiętać', 'ważne', 'uwaga', 'info', 'informacja'],
             patterns: []
         },
         'inspiracja': {
-            icon: '✨',
+            icon: '~',
             keywords: ['cytat', 'motywacja', 'inspiracja', 'marzenie', 'cel', 'sukces',
                       'motto', 'życie', 'przyszłość', 'wizja'],
             patterns: [/^["„"]/, /[""]$/]
         },
         'kontakt': {
-            icon: '👤',
+            icon: '&',
             keywords: ['telefon', 'numer', 'adres', 'email', 'kontakt', 'osoba'],
             patterns: [/\d{3}[\s\-]?\d{3}[\s\-]?\d{3}/, /\S+@\S+\.\S+/]
         },
         'finanse': {
-            icon: '💰',
+            icon: '%',
             keywords: ['pieniądze', 'kasa', 'przelew', 'rachunek', 'opłata', 'rata',
                       'kredyt', 'oszczędności', 'budżet', 'wydatek', 'koszt', 'pensja'],
             patterns: [/\d+\s*(zł|pln|€|\$|tys)/i]
         },
         'zdrowie': {
-            icon: '🏥',
+            icon: '+',
             keywords: ['lekarz', 'wizyta', 'lek', 'tabletki', 'recepta', 'badanie',
                       'dentysta', 'szpital', 'zdrowie', 'dieta', 'trening', 'siłownia'],
             patterns: []
@@ -84,7 +84,7 @@ const Categorizer = {
      */
     categorize(text) {
         if (!text || typeof text !== 'string') {
-            return { category: 'notatka', icon: '📝', confidence: 0 };
+            return { category: 'notatka', icon: '#', confidence: 0 };
         }
 
         const normalizedText = text.toLowerCase().trim();
